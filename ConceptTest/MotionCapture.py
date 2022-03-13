@@ -25,11 +25,10 @@ LEFT_FOOT = [27, 29, 31]
 RIGHT_FOOT = [28, 30, 32]
 pTime = 0
 
-static_img = None
-# static_img = cv2.imread(f"HeelHook.png")
-# static_img = cv2.resize(static_img, (1200, 800))
+RESOURCES_DIR = "./resources"
 
-cap = cv2.VideoCapture("ClimbingVideo.mp4")
+
+cap = cv2.VideoCapture(f"{RESOURCES_DIR}/ClimbingVideo.mp4")
 while True:
     success, img = cap.read()
     if img is None:
@@ -37,6 +36,9 @@ while True:
         cv2.destroyAllWindows()
         break
 
+    static_img = None
+    static_img = cv2.imread(f"{RESOURCES_DIR}/DropKnee4.png")
+    # static_img = cv2.resize(static_img, (1200, 800))
     if static_img is not None:
         img = static_img
 
